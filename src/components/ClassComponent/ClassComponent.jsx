@@ -17,11 +17,20 @@ export class ClassComponent extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState(state => ({
-      count: this.state.count + 1,
+      count: state.count + 1,
     }));
 
     this.setState((state) => {
-      if (!state.userNumber) return state;
+      if (!state.userNumber) {
+        return {
+          result: `Введите число`,
+          isWork: true,
+          count: 0,
+          randomNumber:
+          Math.floor(Math.random() * this.props.max - this.props.min) +
+          this.props.min,
+        }
+      };
 
       if (state.userNumber > state.randomNumber) {
         return {
