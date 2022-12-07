@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './ClassComponent.module.css';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 export class ClassComponent extends React.Component {
   state = {
@@ -29,8 +29,8 @@ export class ClassComponent extends React.Component {
           randomNumber:
           Math.floor(Math.random() * this.props.max - this.props.min) +
           this.props.min,
-        }
-      };
+        };
+      }
 
       if (state.userNumber > state.randomNumber) {
         return {
@@ -45,14 +45,12 @@ export class ClassComponent extends React.Component {
           userNumber: '',
         };
       }
-
       return {
         result: `Угадали число ${state.randomNumber},
         попыток ${state.count}`,
         userNumber: '',
         isWork: false,
       };
-      
     });
   };
 
@@ -89,7 +87,7 @@ export class ClassComponent extends React.Component {
   }
 }
 
-ClassComponent.PropTypes = {
-  min: PropTypes.number,
-  max: PropTypes.number,
+ClassComponent.propTypes = {
+  min: propTypes.number,
+  max: propTypes.number,
 };
